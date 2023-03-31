@@ -26,7 +26,12 @@ def count_reviews():
         print('Rating:', review['rating'])
         print('Time:', datetime.fromtimestamp(review['time']))
 
-    print(place_name + " Number of Reviews: "+str(counter))
+    print(place_name + " Number of Reviews: " + str(counter))
+
+    return jsonify({place_name + "reviews": str(counter)})
+
+
+count_reviews()
 
 
 if __name__ == '__main__':
