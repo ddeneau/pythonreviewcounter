@@ -6,32 +6,21 @@ from datetime import datetime
 app = Flask(__name__)
 
 
-@app.route('/count_reviews')
+@app.route('/')
 def count_reviews():
-    counter = 0
     # Replace key='[insert your key without brackets]'
     google_maps_client = googlemaps.Client(key='AIzaSyDDKS_pV3ihaftl-2JRVEpqMlOZe8I0yp4')
     # Specify the place ID of the business
-    place_id = 'ChIJ7fLdskyTToYR81Dj4KgYsds'
-    # Get the place details, including the reviews
-    place_details = google_maps_client.place(place_id, fields=['reviews'])
+    place_id = 'ChIJ-Y7WtKnrToYRnPvOPI0dwJI'
+    # Get the place details, including the number of reviews and name.
+    review_count = \
+        google_maps_client.place(place_id,
+                                 fields=['user_ratings_total'])['result']['user_ratings_total']
     place_name = google_maps_client.place(place_id, fields=['name'])['result']['name']
-    # Extract the reviews
-    reviews = place_details['result']['reviews']
 
-    # Print the reviews
-    for review in reviews:
-        counter = counter + 1
-        print('Author:', review['author_name'])
-        print('Rating:', review['rating'])
-        print('Time:', datetime.fromtimestamp(review['time']))
+    print(place_name + " Number of Reviews: " + str(review_count))
 
-    print(place_name + " Number of Reviews: " + str(counter))
-
-    return jsonify({place_name + "reviews": str(counter)})
-
-
-count_reviews()
+    return jsonify({place_name + "reviews": str(review_count)})
 
 
 if __name__ == '__main__':
