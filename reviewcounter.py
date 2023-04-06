@@ -5,9 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-
-@app.route('/')
-def count_reviews():
+def count_reviews_alt():
     # Replace key='[insert your key without brackets]'
     google_maps_client = googlemaps.Client(key='AIzaSyDDKS_pV3ihaftl-2JRVEpqMlOZe8I0yp4')
     # Specify the place ID of the business
@@ -21,6 +19,10 @@ def count_reviews():
     print(place_name + " Number of Reviews: " + str(review_count))
 
     return jsonify({place_name + "reviews": str(review_count)})
+
+@app.route('/')
+def count_reviews():
+    return jsonify({"Number": 32})
 
 
 if __name__ == '__main__':
