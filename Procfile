@@ -1,1 +1,1 @@
-web: gunicorn app.py: count_reviews
+web: gunicorn app:count_reviews
