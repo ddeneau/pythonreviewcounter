@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def count_reviews():
-    return jsonify({"Number": "32"})
+    return "32"
 
 
 if __name__ == '__main__':
