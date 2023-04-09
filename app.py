@@ -1,7 +1,4 @@
-from flask import Flask, jsonify
-#from datetime import datetime
-#import requests
-#import googlemaps
+from flask import Flask
 
 app = Flask(__name__)
 
