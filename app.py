@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    json_to_return = jsonify({"Number" : 32 })
+    json_to_return = jsonify({"Number" : 32 }) # Temporarily return a number for testing
     try:
         # Replace key='[insert your key without brackets]'
         google_maps_client = googlemaps.Client(key='AIzaSyDDKS_pV3ihaftl-2JRVEpqMlOZe8I0yp4')
