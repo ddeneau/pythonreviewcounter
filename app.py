@@ -6,10 +6,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    json_to_return = jsonify({'Number' : 32 })
+    json_to_return = jsonify({"Number" : 32 })
     try:
         # Replace key='[insert your key without brackets]'
-        google_maps_client = googlemaps.Client(key='AIzaSyDDKS_pV3ihaftl-2JRVEpqMlOZe8I0yp5')
+        google_maps_client = googlemaps.Client(key='AIzaSyDDKS_pV3ihaftl-2JRVEpqMlOZe8I0yp4')
         # Specify the place ID of the business
         place_id = 'ChIJ-Y7WtKnrToYRnPvOPI0dwJI'
         # Get the place details, including the number of reviews and name.
