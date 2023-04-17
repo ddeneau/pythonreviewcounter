@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return jsonify({'Number' : 32})
+    return jsonify({'number' : 43})
 
 
 if __name__ == '__main__':
