@@ -14,5 +14,6 @@ def index():
 
 
 if __name__ == '__main__':
+    print(googlemaps.__version__)
     app.run()
 
